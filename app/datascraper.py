@@ -18,7 +18,7 @@ import netmiko
 #                       netmiko.ssh_exception.SSHException)
 
 
-reader = csv.DictReader(open('switches.csv', 'rb'))
+reader = csv.DictReader(open('app/switches.csv', 'rb'))
 for row in reader:
     hostname = row['hostname']
     print(hostname)
