@@ -24,7 +24,7 @@ for row in reader:
     print(hostname)
     username = row['username']
     print(username)
-    ipaddress = row['IP']
+    ipaddress = row['ip']
     print(ipaddress)
     device_type = "cisco_ios"
     success = False
@@ -46,8 +46,7 @@ for row in reader:
         writer.save()
         success = True
 
-    except netmiko_excpetions as e:
-        print('Failed to', ipaddress, e)
+    except:
         success = False
         time.sleep(2)
 
