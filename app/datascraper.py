@@ -41,7 +41,7 @@ for row in reader:
         print(mac_data)
         connection.disconnect()
         df = pd.DataFrame(mac_data, columns=list(mac_data.keys()))
-        writer = pd.ExcelWriter('mac_table.xlsx', engine='xlsxwriter')
+        writer = pd.ExcelWriter('app/data/mac_table.xlsx', engine='xlsxwriter')
         df.to_excel(writer, hostname)
         writer.save()
         success = True
