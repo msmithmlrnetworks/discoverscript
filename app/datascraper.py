@@ -25,6 +25,7 @@ for row in reader:
         'interface': [entry['destination_port'] for entry in mac_table],\
         'vlan': [entry['vlan'] for entry in mac_table]}
         connection.disconnect()
+        print(mac_table)
         df = pd.DataFrame(mac_data, columns=list(mac_data.keys()))
         writer = pd.ExcelWriter('/app/app/data/mac_table.xlsx', engine='xlsxwriter')
         df.to_excel(writer, hostname)
