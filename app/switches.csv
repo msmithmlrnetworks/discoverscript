@@ -1,2 +1,3 @@
 hostname,username,ip,port,password,device_type
 CLIP-SHEF-COMM-3850-01,boohoomlr,10.100.10.254,22,*sJ8r*JwQd,cisco_ios
+CLIP-SHEF-0A-SW,boohoomlr,10.100.10.201,22,*sJ8r*JwQd,cisco_ios
