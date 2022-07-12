@@ -27,7 +27,7 @@ for row in reader:
         connection.disconnect()
         print(connection.is_alive())
         df = pd.DataFrame(mac_data, columns=list(mac_data.keys()))
-        writer = pd.ExcelWriter('/app/app/data/mac_table.xlsx', engine='xlsxwriter')
+        writer = pd.ExcelWriter('/app/data/mac_table.xlsx', engine='xlsxwriter')
         df.to_excel(writer, hostname)
         writer.save()
         success = True
