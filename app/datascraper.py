@@ -32,8 +32,8 @@ for row in reader:
         writer.save()
         success = True
 
-        time.sleep(102)
+        time.sleep(200)
     except:
         success = False
-        time.sleep(2)
+        time.sleep(200)
 
