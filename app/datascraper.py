@@ -13,9 +13,9 @@ import pandas as pd
 import netmiko
 
 
-netmiko_excpetions = (netmiko.ssh_exception.NetMikoTimeoutException,
-                      netmiko.ssh_exception.NetMikoAuthenticationException,
-                      netmiko.ssh_exception.SSHException)
+# netmiko_excpetions = (netmiko.ssh_exception.NetMikoTimeoutException,
+#                       netmiko.ssh_exception.NetMikoAuthenticationException,
+#                       netmiko.ssh_exception.SSHException)
 
 
 reader = csv.DictReader(open('switches.csv', 'rb'))
