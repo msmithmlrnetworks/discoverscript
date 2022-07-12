@@ -37,5 +37,5 @@ for row in reader:
     except:
         success = False
         print('error')
-        time.sleep(200)
+        time.sleep(20000)
 
