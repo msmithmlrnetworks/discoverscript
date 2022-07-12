@@ -26,7 +26,7 @@ for row in reader:
         'vlan': [entry['vlan'] for entry in mac_table]}
         connection.disconnect()
         df = pd.DataFrame(mac_data, columns=list(mac_data.keys()))
-        writer = pd.ExcelWriter('data/mac_table.xlsx', engine='xlsxwriter')
+        writer = pd.ExcelWriter('/app/app/data/mac_table.xlsx', engine='xlsxwriter')
         df.to_excel(writer, hostname)
         writer.save()
         success = True
