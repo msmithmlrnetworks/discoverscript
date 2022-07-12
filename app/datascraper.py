@@ -48,6 +48,6 @@ def getData():
 
 while True:
     getData()
-    time.sleep(60)
+    time.sleep(28800)
 
 
