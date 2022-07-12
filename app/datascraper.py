@@ -31,9 +31,11 @@ for row in reader:
         df.to_excel(writer, hostname)
         writer.save()
         success = True
+        print('success')
 
         time.sleep(200)
     except:
         success = False
+        print('error')
         time.sleep(200)
 

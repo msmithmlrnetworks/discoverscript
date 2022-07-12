@@ -4,9 +4,7 @@ services:
   discoverscript1:
     image: discoverscript1
     volumes:
-      - data:/app/data
+      - /home/ec2-user/data:/app/data
     build:
       context: .
       dockerfile: ./Dockerfile
-volumes:
-  data:
