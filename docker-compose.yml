@@ -4,8 +4,7 @@ services:
   discoverscript1:
     image: discoverscript1
     volumes:
-      - ./data:/app/data
+      - ./app/data/:/app/data/
     build:
       context: .
       dockerfile: ./Dockerfile
-
