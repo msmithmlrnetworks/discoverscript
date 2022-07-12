@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  discoverscript1:
+    image: discoverscript1
+    build:
+      context: .
+      dockerfile: ./Dockerfile
