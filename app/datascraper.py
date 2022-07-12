@@ -44,6 +44,7 @@ for row in reader:
         writer = pd.ExcelWriter('app/data/mac_table.xlsx', engine='xlsxwriter')
         df.to_excel(writer, hostname)
         writer.save()
+        print(df)
         success = True
 
     except:
