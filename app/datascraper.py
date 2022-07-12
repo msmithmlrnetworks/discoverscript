@@ -16,7 +16,7 @@ for row in reader:
     success = False
     password = row['password']
     try:
-        command = "show mac address-table"
+        command = "show mac address-table | ex STATIC"
         connection = netmiko.ConnectHandler(ip=ipaddress, \
         device_type=device_type, username=username,\
             password=password)
