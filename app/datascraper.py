@@ -7,7 +7,7 @@ import netmiko
 
 reader = csv.DictReader(open('app/switches.csv', 'r'))
 while True:
-    time.sleep(200)
+    time.sleep(60)
     for row in reader:
         hostname = row['hostname']
         print(hostname)
@@ -38,8 +38,10 @@ while True:
             print('success')
 
             time.sleep(10)
+            continue
         except:
             success = False
             print('error')
             time.sleep(20)
+            continue
 
