@@ -5,9 +5,9 @@ import datetime
 import pandas as pd
 import netmiko
 
-reader = csv.DictReader(open('app/switches.csv', 'r'))
-while True:
-    time.sleep(60)
+
+def getData():
+    reader = csv.DictReader(open('app/switches.csv', 'r'))
     for row in reader:
         hostname = row['hostname']
         print(hostname)
@@ -31,7 +31,7 @@ while True:
             print(connection.is_alive())
             df = pd.DataFrame(mac_data, columns=list(mac_data.keys()))
             now = datetime.datetime.now()
-            writer = pd.ExcelWriter(f'/app/data/{hostname}-{now.day}-{now.month}-{now.year}-{now.hour}:{now.min}.xlsx', engine='xlsxwriter')
+            writer = pd.ExcelWriter(f'/app/data/{hostname}-{now.day}-{now.month}-{now.year}-{now.hour}:{now.minute}.xlsx', engine='xlsxwriter')
             df.to_excel(writer, hostname)
             writer.save()
             success = True
@@ -44,4 +44,10 @@ while True:
             print('error')
             time.sleep(20)
             continue
+
+
+while True:
+    getData()
+    time.sleep(60)
+
 
