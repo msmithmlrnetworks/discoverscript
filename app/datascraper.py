@@ -33,9 +33,9 @@ for row in reader:
         success = True
         print('success')
 
-        time.sleep(200)
+        time.sleep(10)
     except:
         success = False
         print('error')
-        time.sleep(20000)
+        time.sleep(20)
 
