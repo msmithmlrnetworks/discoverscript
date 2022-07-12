@@ -1,6 +1,7 @@
 import csv
 from re import M
 import time
+import datetime
 import pandas as pd
 import netmiko
 
@@ -27,7 +28,8 @@ for row in reader:
         connection.disconnect()
         print(connection.is_alive())
         df = pd.DataFrame(mac_data, columns=list(mac_data.keys()))
-        writer = pd.ExcelWriter(f'/app/data/mac_table{hostname}-{time.localtime}.xlsx', engine='xlsxwriter')
+        now = datetime.datetime.now()
+        writer = pd.ExcelWriter(f'/app/data/{hostname}-{now.day}-{now.month}-{now.year}-{now.hour}:{now.min}.xlsx', engine='xlsxwriter')
         df.to_excel(writer, hostname)
         writer.save()
         success = True
