@@ -4,6 +4,7 @@ import time
 import datetime
 import pandas as pd
 import netmiko
+import nmap3
 
 
 def getData():
@@ -45,9 +46,14 @@ def getData():
             time.sleep(20)
             continue
 
+def nmapScan():
+    nmap = nmap3.Nmap()
+    scanResult = nmap.nmap_subnet_scan("172.20.20.0")
+    print(scanResult)
+
 
 while True:
-    getData()
+    nmapScan()
     time.sleep(28800)
 
 
