@@ -9,6 +9,13 @@ import nmap3
 
 def getData():
     reader = csv.DictReader(open('app/switches.csv', 'r'))
+    iparp = "show ip arp"
+    connection_core = netmiko.ConnectHandler(ip="10.100.10.254", \
+            device_type="cisco_ios", username="boohoomlr",\
+                password="*sJ8r*JwQd")
+    raw_output = connection.send_command(iparp, use_textfsm=True)
+    print(raw_output)
+    connection_core.disconnect()
     for row in reader:
         hostname = row['hostname']
         print(hostname)
@@ -46,14 +53,8 @@ def getData():
             time.sleep(20)
             continue
 
-def nmapScan():
-    nmap = nmap3.Nmap()
-    scanResult = nmap.nmap_subnet_scan("172.20.20.0")
-    print(scanResult)
-
-
 while True:
-    nmapScan()
+    getData()
     time.sleep(28800)
 
 
