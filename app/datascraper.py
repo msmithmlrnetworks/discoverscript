@@ -13,7 +13,7 @@ def getData():
     connection_core = netmiko.ConnectHandler(ip="10.100.10.254", \
             device_type="cisco_ios", username="boohoomlr",\
                 password="*sJ8r*JwQd")
-    raw_output = connection.send_command(iparp, use_textfsm=True)
+    raw_output = connection_core.send_command(iparp, use_textfsm=True)
     print(raw_output)
     connection_core.disconnect()
     for row in reader:
