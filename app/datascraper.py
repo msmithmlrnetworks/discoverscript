@@ -14,7 +14,14 @@ def getData():
             device_type="cisco_ios", username="boohoomlr",\
                 password="*sJ8r*JwQd")
     raw_output = connection_core.send_command(iparp, use_textfsm=True)
-    print(raw_output)
+    arp_data = {'ip':  [entry['address'] for entry in raw_output],\
+            'mac': [entry['mac'] for entry in raw_output],\
+            'vlan': [entry['interface'] for entry in raw_output]}
+    df1 = pd.DataFrame(arp_data, columns=list(arp_data.keys()))
+    now = datetime.datetime.now()
+    writer2 = pd.ExcelWriter(f'/app/data/{hostname}-{now.day}-{now.month}-{now.year}-{now.hour}:{now.minute}.xlsx', engine='xlsxwriter')
+    df1.to_excel(writer2, "iparp")
+    writer2.save()
     connection_core.disconnect()
     for row in reader:
         hostname = row['hostname']
