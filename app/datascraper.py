@@ -8,7 +8,8 @@ import nmap3
 
 
 def getData():
-    # reader = csv.DictReader(open('app/switches.csv', 'r'))
+    
+    reader = csv.DictReader(open('app/switches.csv', 'r'))
     # iparp = "show ip arp"
     # connection_core = netmiko.ConnectHandler(ip="10.100.10.254", \
     #         device_type="cisco_ios", username="boohoomlr",\
